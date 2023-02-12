@@ -5,19 +5,19 @@ set(CMAKE_CXX_STANDARD 17)
 
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
-project(tangle C CXX ASM)
+project(rndtest C CXX ASM)
 
 pico_sdk_init()
 
-add_executable(tangle tangle.cpp)
+add_executable(rndtest rndtest.c)
 
-pico_set_program_name(tangle "tangle")
-pico_set_program_version(tangle "0.2")
+pico_set_program_name(rndtest "rndtest")
+pico_set_program_version(rndtest "0.2")
 
-pico_enable_stdio_uart(tangle 1)
-pico_enable_stdio_usb(tangle 0)
+pico_enable_stdio_uart(rndtest 1)
+pico_enable_stdio_usb(rndtest 0)
 
-target_link_libraries(tangle pico_stdlib)
+target_link_libraries(rndtest pico_stdlib pico_rand)
 
-pico_add_extra_outputs(tangle)
+pico_add_extra_outputs(rndtest)
 
