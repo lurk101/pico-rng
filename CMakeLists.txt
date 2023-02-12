@@ -10,8 +10,8 @@ project(rndtest C CXX ASM)
 pico_sdk_init()
 
 #add_compile_options("-DPICO_RAND_ENTROPY_SRC_ROSC=0")
-add_compile_options("-DPICO_RAND_ENTROPY_SRC_TIME=0")
-add_compile_options("-DPICO_RAND_ENTROPY_SRC_BUS_PERF_COUNTER=0")
+#add_compile_options("-DPICO_RAND_ENTROPY_SRC_TIME=0")
+#add_compile_options("-DPICO_RAND_ENTROPY_SRC_BUS_PERF_COUNTER=0")
 
 add_executable(rndtest rndtest.c)
 
