@@ -26,7 +26,6 @@ static double std_dev_mean(int n) { return sum / n; }
 static double std_dev(int n) {
     double mean = sum / n;
     return sqrt(sq_sum / n - mean * mean);
-    return sum / n;
 }
 
 int main() {
@@ -45,7 +44,7 @@ int main() {
     // Bucket test
     // The focus of this test is to determine that values are evenly distributed
     // across the range
-    printf("Upper 4 bits distribution\n");
+    printf("Upper 4 bits distribution. All buckets should be aproximately equal\n");
     for (int i = 0; i < 16; ++i)
         histogram[i] = 0;
     for (int i = 0; i < ITERATIONS; ++i)
@@ -71,11 +70,12 @@ int main() {
     printf("Mean      %.2f\n", std_dev_mean(16));
     printf("Std. dev. %.2f\n", std_dev(16));
 
-    // Frequency (Monobit) Test
+    // Frequency (Monobit) Test.
     // The purpose of this test is to determine whether the number of ones and
     // zeros in a sequence are approximately the same as would be expected for
     // a truly random sequence.
-    printf("\nSingle bit distribution\n");
+    printf(
+        "\nSingle bit distribution. There should be aproximately the same number of 0s and 1s\n");
     int ones = 0, zeros = 0;
     for (int i = 0; i < ITERATIONS; ++i) {
         int64_t n = get_rand_64();
@@ -102,7 +102,9 @@ int main() {
     // a bit of the opposite value. The purpose of the runs test is to determine
     // whether the number of runs of ones and zeros of various lengths is as
     // expected for a random sequence
-    printf("\nRun lengths distributions\n");
+    printf("\nRun lengths distributions. The number of 0 runs and 1 runs should\n"
+           "be aproximately the same, and total runs should be aproximately as\n"
+           "expected\n");
     for (int i = 0; i < 32; ++i)
         histogram[i] = 0;
     int last = -1, last_count;
