@@ -41,6 +41,18 @@ int main() {
 
     printf("Using get_rand_64()\n\n");
 
+    printf("Monte carlo test. The final result should aproximate the value of"
+           " π=3.14159265358979323846\n");
+    uint32_t in_circle = 0;
+    for (int i = 0; i < ITERATIONS; ++i) {
+        double x = get_rand_64() / 18446744073709551616.0;
+        double y = get_rand_64() / 18446744073709551616.0;
+        if (x * x + y * y <= 1.0)
+            ++in_circle;
+    }
+	double r = in_circle / (double)ITERATIONS * 4.0;
+    printf("Result %f, diff %f\n\n", r, fabs(r - 3.14159265358979323846));
+
     // Bucket test
     // The focus of this test is to determine that values are evenly distributed
     // across the range
