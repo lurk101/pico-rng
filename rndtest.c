@@ -31,6 +31,9 @@ static double std_dev(int n) {
 int main() {
     stdio_init_all();
 
+    printf("Pico SDK version %d.%d.%d\n\n", PICO_SDK_VERSION_MAJOR, PICO_SDK_VERSION_MINOR,
+           PICO_SDK_VERSION_REVISION);
+
     printf("PICO_RAND_ENTROPY_SRC_ROSC = %d\n", PICO_RAND_ENTROPY_SRC_ROSC);
     printf("PICO_RAND_ENTROPY_SRC_TIME = %d\n", PICO_RAND_ENTROPY_SRC_TIME);
     printf("PICO_RAND_ENTROPY_SRC_BUS_PERF_COUNTER = %d\n", PICO_RAND_ENTROPY_SRC_BUS_PERF_COUNTER);
